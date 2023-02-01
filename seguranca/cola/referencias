@@ -1,0 +1,49 @@
+https://wiki.python.org.br/SocketBasico
+https://medium.com/@urapython.community/introdução-a-sockets-em-python-44d3d55c60d0
+https://blog.4linux.com.br/socket-em-python/
+https://medium.com/@tarcisioma/algoritmo-de-criptografia-assimétrica-rsa-c6254a3c7042#:~:text=O%20algoritmo%20RSA%20foi%20descrito,duas%20chaves%20que%20são%20usadas.
+https://acervolima.com/como-gerar-grandes-numeros-primos-para-algoritmo-rsa/
+https://www.delftstack.com/pt/howto/python/python-generate-prime-number/
+https://excript.com/python/comparacao-de-string-python.html#:~:text=O%20Python%20disponibiliza%202%20fun%C3%A7%C3%B5es,%C3%A9%20retornado%20a%20respectiva%20letra.
+https://www.w3schools.com/python/ref_string_join.asp
+https://hackingnaweb.com/criptografia/entendendo-algoritmo-rsa-de-verdade/
+
+# para gerar chaves públicas são necessários gerar dois números p e q aleatórios
+
+# predefini os números para testar o algoritmo
+p = 17
+q = 41
+
+# Agora calcularemos o N, sendo a multiplicação de P e Q.
+
+n = p * q
+print(n)
+
+# utilizando a função totiente de Euller para encontrar phi, como p e q são primos é utilizado p-1 e q-1
+
+phi_n = (p - 1) * (q - 1)
+print(phi_n)
+
+# agora temos que achar um valor aleatório E, que seja  1 < E < phi_n, E nos primos
+# para selecionar o valor tiramos o mdc onde, MDC(phi_n, E) == 1
+# Aqui escolhi e = 13, pois 1 < 13 < 640 e mdc(640, 13) == 1
+
+e = 13
+
+# A chave = N e E, 697 e 13
+# Agora temos que criptografar a mensagem transformando-a em ASCII, fazendo com que fiquem em sua forma
+# númerica, podendo usa-las para fórmulas aritméticas
+
+mensagem = 'oi'
+
+o_ascii = 111
+i_ascii = 105
+
+# para cifrar elevamos o valor ascii de cada letra pelo valor de E e tiramos o módulo de N
+
+o_cifrado = (o_ascii ** e) % n
+i_cifrado = (i_ascii ** e) % n
+
+
+
+
